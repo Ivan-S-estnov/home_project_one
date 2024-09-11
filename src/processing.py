@@ -15,7 +15,8 @@ def filter_by_state(info_input: list[dict[str, Any]], state_id: str = "EXECUTED"
     for key in info_input:
         if key.get("state") == state_id:
             state_list.append(key)
-            return state_list
+
+    return state_list
 
 
 print(filter_by_state(info_input))
