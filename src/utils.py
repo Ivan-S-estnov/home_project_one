@@ -32,5 +32,3 @@ if __name__ == '__main__':
     print(category_data[0].name)
     print(category_data[0].description)
     print(category_data[0].products)
-    print(category_data[0].category_count)
-    print(category_data[0].product_count)
