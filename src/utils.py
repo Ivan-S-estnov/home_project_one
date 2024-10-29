@@ -5,7 +5,6 @@ from unicodedata import category
 
 from src.product import Product
 from src.category import Category
-from tests.conftest import product
 
 
 def read_json(path: str) -> dict:
@@ -15,15 +14,23 @@ def read_json(path: str) -> dict:
         data = json.load(file)
     return data
 
-def create_objects_from_json(data):
-    categories = []
-    for i in data:
-        product = []
-        for j in category['products']:
 
+def create_objects_from_json(data):
+    prod = []
+    for i in data:
+        desc = []
+        for j in i["products"]:
+            desc.append(Product(**j))
+        i["products"] = desc
+        prod.append(Category(**i))
+    return prod
 
 
 if __name__ == '__main__':
     raw_data = read_json("../data/products.json")
     category_data = create_objects_from_json(raw_data)
-    print(category_data)
+    print(category_data[0].name)
+    print(category_data[0].description)
+    print(category_data[0].products)
+    print(category_data[0].category_count)
+    print(category_data[0].product_count)
