@@ -27,6 +27,16 @@ def second_category():
         ]
     )
 
+@pytest.fixture
+def third_category():
+    return Category(
+        name="Товар закончился",
+        description="Нет в наличие",
+        products=[
+            Product("", "", 0, 0)
+        ]
+    )
+
 
 @pytest.fixture
 def product():
